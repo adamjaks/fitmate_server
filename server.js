@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require("passport");
+const cors = require("cors");
 
 const users = require("./routes/api/users");
 const trainings = require("./routes/api/trainings");
@@ -10,6 +11,7 @@ const categories = require("./routes/api/categories");
 const trainingDays = require("./routes/api/trainingDays");
 
 const app = express();
+app.use(cors());
 
 app.use(
     bodyParser.urlencoded({
