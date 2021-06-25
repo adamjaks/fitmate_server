@@ -8,7 +8,7 @@ module.exports = function validateAddExerciseInput(data) {
     data.categoriesIds = !isEmpty(data.categoriesIds) ? data.categoriesIds : [];
 
     if (Validator.isEmpty(data.name)) {
-        errors.name = "Name is required";
+        errors.name = "Nazwa jest wymagana";
     }
     // else if (Validator.isEmpty(data.categoriesIds)) {
     //     errors.categoriesIds = "Categories are required";

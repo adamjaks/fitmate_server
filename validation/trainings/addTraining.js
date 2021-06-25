@@ -8,9 +8,9 @@ module.exports = function validateAddTrainingInput(data) {
     data.name = !isEmpty(data.name) ? data.name : "";
 
     if (Validator.isEmpty(data.authorId)) {
-        errors.authorId = "Author is required";
+        errors.authorId = "Autor jest wymagany";
     } else if (Validator.isEmpty(data.name)) {
-        errors.name = "Name is required";
+        errors.name = "Nazwa jest wymagana";
     }
 
     return {
