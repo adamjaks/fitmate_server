@@ -6,8 +6,8 @@ const TrainingDay = require("../../models/TrainingDay");
 // @route GET api/training-days
 // @desc Get training days list
 // @access Public
-router.get("/", (req, res) => {
-    TrainingDay.find().then(trainingDays => {
+router.get("/:userId", (req, res) => {
+    TrainingDay.find({authorId: req.params.userId}).then(trainingDays => {
         res.send(trainingDays);
     })
 });
