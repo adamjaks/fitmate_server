@@ -3,8 +3,8 @@ const Schema = mongoose.Schema;
 
 const TrainingSchema = new Schema({
     authorId: {
-        type: Number,
-        required: false
+        type: String,
+        required: true
     },
     name: {
         type: String,

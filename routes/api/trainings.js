@@ -8,8 +8,8 @@ const Training = require("../../models/Training");
 // @route GET api/trainings
 // @desc Get training list
 // @access Public
-router.get("/", (req, res) => {
-    Training.find().then(trainings => {
+router.get("/:userId", (req, res) => {
+    Training.find({authorId: req.params.userId}).then(trainings => {
         res.send(trainings);
     })
 });
@@ -27,10 +27,10 @@ router.get("/details/:id", (req, res) => {
 // @desc Add training
 // @access Public
 router.post("/add", (req, res) => {
-    const { errors, isValid } = validateAddTrainingInput(req.body);
-    if (!isValid) {
-        return res.status(400).json(errors);
-    }
+    // const { errors, isValid } = validateAddTrainingInput(req.body);
+    // if (!isValid) {
+    //     return res.status(400).json(errors);
+    // }
 
     const newTraining = new Training({
         authorId: req.body.authorId,
