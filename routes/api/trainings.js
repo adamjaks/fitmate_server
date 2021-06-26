@@ -8,8 +8,8 @@ const Training = require("../../models/Training");
 // @route GET api/trainings
 // @desc Get training list
 // @access Public
-router.get("/:id", (req, res) => {
-    Training.find({authorId: req.params.id}).then(trainings => {
+router.get("/", (req, res) => {
+    Training.find().then(trainings => {
         res.send(trainings);
     })
 });
