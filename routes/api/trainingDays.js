@@ -33,9 +33,9 @@ router.get("/last/:id", (req, res) => {
 // @route POST api/training-days/add
 // @desc Add training day
 // @access Public
-router.post("/add/:id", (req, res) => {
+router.post("/add", (req, res) => {
     const newTrainingDay = new TrainingDay({
-        authorId: req.params.id,
+        authorId: req.body.authorId,
         duration: req.body.duration,
         caloriesBurned: req.body.caloriesBurned,
         trainingName: req.body.trainingName
