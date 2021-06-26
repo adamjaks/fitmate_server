@@ -6,8 +6,8 @@ const TrainingDay = require("../../models/TrainingDay");
 // @route GET api/training-days
 // @desc Get training days list
 // @access Public
-router.get("/", (req, res) => {
-    TrainingDay.find().then(trainingDays => {
+router.get("/:id", (req, res) => {
+    TrainingDay.find({authorId: req.params.id}).then(trainingDays => {
         res.send(trainingDays);
     })
 });
@@ -24,8 +24,8 @@ router.get("/details/:id", (req, res) => {
 // @route GET api/trainings/last
 // @desc Get last training details
 // @access Public
-router.get("/last", (req, res) => {
-    TrainingDay.find().sort({date: -1}).then(trainingDays => {
+router.get("/last/:id", (req, res) => {
+    TrainingDay.find({authorId: req.params.id}).sort({date: -1}).then(trainingDays => {
         res.send(trainingDays[0]);
     })
 });
@@ -33,9 +33,9 @@ router.get("/last", (req, res) => {
 // @route POST api/training-days/add
 // @desc Add training day
 // @access Public
-router.post("/add", (req, res) => {
+router.post("/add/:id", (req, res) => {
     const newTrainingDay = new TrainingDay({
-        authorId: req.body.authorId,
+        authorId: req.params.id,
         duration: req.body.duration,
         caloriesBurned: req.body.caloriesBurned,
         trainingName: req.body.trainingName
