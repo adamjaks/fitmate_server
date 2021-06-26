@@ -9,7 +9,7 @@ const Training = require("../../models/Training");
 // @desc Get training list
 // @access Public
 router.get("/:id", (req, res) => {
-    Training.find({_authorId: req.params.id}).then(trainings => {
+    Training.find({authorId: req.params.id}).then(trainings => {
         res.send(trainings);
     })
 });
