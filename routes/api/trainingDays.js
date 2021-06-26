@@ -24,8 +24,8 @@ router.get("/details/:id", (req, res) => {
 // @route GET api/trainings/last
 // @desc Get last training details
 // @access Public
-router.get("/last/:id", (req, res) => {
-    TrainingDay.find({authorId: req.params.id}).sort({date: -1}).then(trainingDays => {
+router.get("/last/:userId", (req, res) => {
+    TrainingDay.find({authorId: req.params.userId}).sort({date: -1}).then(trainingDays => {
         res.send(trainingDays[0]);
     })
 });

@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const TrainingDaySchema = new Schema({
     authorId: {
-        type: Number,
+        type: String,
         required: true
     },
     date: {

@@ -27,10 +27,10 @@ router.get("/details/:id", (req, res) => {
 // @desc Add training
 // @access Public
 router.post("/add", (req, res) => {
-    // const { errors, isValid } = validateAddTrainingInput(req.body);
-    // if (!isValid) {
-    //     return res.status(400).json(errors);
-    // }
+    const { errors, isValid } = validateAddTrainingInput(req.body);
+    if (!isValid) {
+        return res.status(400).json(errors);
+    }
 
     const newTraining = new Training({
         authorId: req.body.authorId,
